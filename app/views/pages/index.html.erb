@@ -1,0 +1,19 @@
+<div class="shorten header">
+  <div class="constrain">
+    <h1>Simplify your links</h1>
+      <div class="row">
+        <div class="col-md-3 col-md-offset-4">
+          <input type="text" class="form-control" placeholder="Your original URL here">
+        </div>
+        <button id="btnShorten" type="button" class="btn btn-default pull-left">
+          Shorten URL
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :extra_javascripts do %>
+  <%= javascript_include_tag "url_shortener" %>
+<% end %>
+
