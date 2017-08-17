@@ -20,15 +20,17 @@ function getShortUrl() {
     type: "GET",
     dataType: "JSON",
     success: function(data){
+      console.log()
       $("#urlShortenModal").modal("show");
-      setUrls(data["short_url"], data["original_url"])
+      setUrls(data["shorten_url"], data["original_url"])
     },
     error: function(e){console.log("Cannot load view: "+e)}
   });
 }
 
 function setUrls (shortUrl, originalUrl) {
-  $("#short-url-label").html(shortUrl);
+  var root = document.location.host;
+  $("#short-url-label").html(root + "/" + shortUrl);
   $("#original-url-label").attr("href", originalUrl);
   $("#original-url-label").text(originalUrl);
 }
