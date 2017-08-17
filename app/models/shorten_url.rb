@@ -1,4 +1,5 @@
 class ShortenUrl < ActiveRecord::Base
+  has_many :url_statistics, dependent: :destroy
 
   class << self
     def generate_url(original_url)
@@ -10,7 +11,7 @@ class ShortenUrl < ActiveRecord::Base
     private
 
     def create_record(original_url)
-      return self.create(
+      return create(
         original_url: original_url,
         shorten_url: randomizer
       )

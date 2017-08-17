@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "shorten_url#index"
 
-  match ":short_url", to: "shorten_url#redirect", via: [:get]
+  match ":shorten_url", to: "shorten_url#redirect", via: [:get]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
