@@ -1,0 +1,28 @@
+<div id="urlShortenModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Your short URL</h4>
+      </div>
+      <div class="modal-body">
+        <div>
+          <label>Shorten Url:</label>
+          <span class="short-display">
+            <i id="short-url-label"></i>
+            <a class="clipboard-btn" data-clipboard-action="copy" data-clipboard-target="#short-url-label">
+              <%= image_tag("copy-icon.png", size: "35x35") %>
+            </a>
+          </span>
+        </div>
+        <br />
+        <br />
+        <label>Original Url:</label>
+        <%= link_to "", "", id: "original-url-label", target: "_blank", class:"short-display" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

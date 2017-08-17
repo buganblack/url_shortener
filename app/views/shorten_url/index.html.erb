@@ -3,15 +3,17 @@
     <h1>Simplify your links</h1>
       <div class="row">
         <div class="col-md-3 col-md-offset-4">
-          <input type="text" class="form-control" placeholder="Your original URL here">
+          <input type="text" id="inputUrl" class="form-control" placeholder="Your original URL here">
         </div>
-        <button id="btnShorten" type="button" class="btn btn-default pull-left">
+        <button type="button" id="btnShorten" class="btn btn-default pull-left">
           Shorten URL
         </button>
       </div>
     </div>
   </div>
 </div>
+
+<%= render "url_modal" %>
 
 <% content_for :extra_javascripts do %>
   <%= javascript_include_tag "url_shortener" %>

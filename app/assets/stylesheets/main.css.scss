@@ -8,6 +8,17 @@
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12)
 }
 
+.short-display {
+  padding: 9px 8px 9px 12px;
+  font-size: 14px;
+  background-color: #eee
+}
+
+.normal-button {
+  border: none;
+  background-color: transparent;
+}
+
 .constrain {
   text-align: center;
 }
