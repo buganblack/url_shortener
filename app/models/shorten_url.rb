@@ -8,7 +8,10 @@ class ShortenUrl < ActiveRecord::Base
       create_record(original_url)
     end
 
-    private
+    def increament_total(original_url)
+      data = find_by_original_url(original_url)
+      data.update_attribute(:total_visit, data.total_visit + 1)
+    end
 
     def create_record(original_url)
       return create(
@@ -16,6 +19,12 @@ class ShortenUrl < ActiveRecord::Base
         shorten_url: randomizer
       )
     end
+
+    def find_url(url)
+      where("shorten_url = ? OR original_url LIKE ?", url, "%#{url}%").first
+    end
+
+    private
 
     def randomizer
       short = ""

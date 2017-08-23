@@ -25,9 +25,8 @@ ActiveRecord::Schema.define(version: 20170817095532) do
   add_index "shorten_urls", ["shorten_url"], name: "index_shorten_urls_on_shorten_url", using: :btree
 
   create_table "url_statistics", force: :cascade do |t|
-    t.string   "ip_address",     limit: 255,             null: false
-    t.integer  "visit",          limit: 4,   default: 0
-    t.integer  "shorten_url_id", limit: 4,               null: false
+    t.string   "ip_address",     limit: 255, null: false
+    t.integer  "shorten_url_id", limit: 4,   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

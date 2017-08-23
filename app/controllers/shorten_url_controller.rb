@@ -10,8 +10,14 @@ class ShortenUrlController < ApplicationController
   def redirect
     original_url = UrlStatistic.create_record(request.remote_ip, params[:shorten_url])
 
+    ShortenUrl.increament_total(original_url) if original_url.present?
+
     original_url = "http://#{original_url}" unless original_url.start_with?("http://", "https://")
 
     redirect_to(original_url)
+  end
+
+  def statistics
+    binding.pry
   end
 end

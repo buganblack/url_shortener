@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   root to: "shorten_url#index"
 
   match ":shorten_url", to: "shorten_url#redirect", via: [:get]
+
+  namespace :api, defaults: { format: :json } do
+    get "getUrlData", to: "url_data#show"
+    get "getStatisticsData", to: "url_data#statistics"
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

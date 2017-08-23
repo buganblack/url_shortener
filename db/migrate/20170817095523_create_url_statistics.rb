@@ -2,7 +2,6 @@ class CreateUrlStatistics < ActiveRecord::Migration
   def change
     create_table :url_statistics do |t|
       t.string       :ip_address, null: false
-      t.integer      :visit, default: 0
       t.integer      :shorten_url_id, null: false
 
       t.timestamps
