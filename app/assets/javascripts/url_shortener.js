@@ -6,6 +6,13 @@ $(document).ready(function(){
     }
   });
 
+  $("#btnStatistics").click(function() {
+    var url = $("#statisticsUrl").val();
+    if (url != "") {
+      window.open("shorten_url/" + url, "_blank")
+    }
+  });
+
   $(".clipboard-btn").tooltip({
     placement: "right",
     trigger: "hover",
@@ -20,9 +27,8 @@ function getShortUrl() {
     type: "GET",
     dataType: "JSON",
     success: function(data){
-      console.log()
       $("#urlShortenModal").modal("show");
-      setUrls(data["shorten_url"], data["original_url"])
+      setUrls(data["shorten_url"], data["original_url"]);
     },
     error: function(e){console.log("Cannot load view: "+e)}
   });

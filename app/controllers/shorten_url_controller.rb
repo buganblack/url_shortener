@@ -17,7 +17,10 @@ class ShortenUrlController < ApplicationController
     redirect_to(original_url)
   end
 
-  def statistics
-    binding.pry
+  def show_statistics
+    @data = ShortenUrl.find_url(params[:url])
+    render file: "#{Rails.root}/public/404.html", layout: false, status: 404 and return unless @data
+    @stats = @data.url_statistics.group_by(&:ip_address)
+    @unique_stats = UrlStatistic.unique_hourly_data(@data, params[:start_period])
   end
 end

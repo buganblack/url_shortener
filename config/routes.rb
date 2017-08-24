@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: "shorten_url#index"
 
+  get "shorten_url/:url", to: "shorten_url#show_statistics", as: :show_statistics
   match ":shorten_url", to: "shorten_url#redirect", via: [:get]
 
   namespace :api, defaults: { format: :json } do
