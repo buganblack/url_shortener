@@ -1,0 +1,31 @@
+<div id="ipListModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">List of Unique Visitors</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Visitors IP</th>
+              <th>Total Number of Visits</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @data.url_statistics.group_by(&:ip_address).each do |ip, record| %>
+              <tr>
+                <th><%= ip %></th>
+                <th><%= record.count %></th>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

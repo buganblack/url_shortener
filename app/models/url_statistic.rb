@@ -20,5 +20,9 @@ class UrlStatistic < ActiveRecord::Base
       end
       total
     end
+
+    def hourly_unique_visits(ip, shorten_id)
+      where(created_at: Date.current.beginning_of_day..Date.current.end_of_day, shorten_url_id: shorten_id, ip_address: ip).order("created_at ASC").group("date_format(created_at, '%H:00:00')")
+    end
   end
 end

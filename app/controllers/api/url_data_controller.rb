@@ -1,12 +1,12 @@
 class Api::UrlDataController < API::BaseController
   def show
-    data = ShortenUrl.find_url(params[:url])
+    data = ShortenUrl.find_by_shorten_url(params[:url])
     show_error_message(:not_found) and return unless data
     output_api(show_data(data))
   end
 
   def statistics
-    data = ShortenUrl.find_url(params[:url])
+    data = ShortenUrl.find_by_shorten_url(params[:url])
     show_error_message(:not_found) and return unless data
     show_error_message(:invalid_params) and return if (params[:start_period].present? && (DateTime.parse(params[:start_period]) rescue nil).blank?)
     output_api(show_statistics(data))

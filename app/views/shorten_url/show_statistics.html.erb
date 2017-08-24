@@ -1,0 +1,37 @@
+<div class="row" >
+  <div class="col-md-9"style="margin: 0 auto;float: none;">
+    <div>
+      <label>Shorten Url:</label>
+      <span class="short-display">
+        <i id="short-url-label"><%= @data.shorten_url %></i>
+        <a class="clipboard-btn" data-clipboard-action="copy" data-clipboard-target="#short-url-label">
+          <%= image_tag("copy-icon.png", size: "35x35") %>
+        </a>
+      </span>
+    </div>
+    <br />
+    <label>Original Url:</label>
+    <%= link_to @data.original_url, @data.original_url, id: "original-url-label", target: "_blank", class:"short-display" %>
+    <br />
+    <br />
+    <button type="button" data-toggle="modal" data-target="#ipListModal" class="btn btn-default">
+      List of Unique Visitors
+    </button>
+    <br />
+    <br />
+    <%= line_chart @data.total_stats.count, xtitle: "Total Stats", ytitle: "Total Visits: #{@data.total_visit}" %>
+    <div style="margin-top: 60px">
+      <%= line_chart @data.daily_hourly.count, xtitle: "Daily (Hourly) Stats", ytitle: "Total Visits: #{@data.daily_sum }" %>
+    </div>
+    <div style="margin-top: 60px">
+      <%= line_chart @data.daily_unique_visits.count, xtitle: "Daily Unique Visits", ytitle: "Total Visits: #{@data.daily_sum }" %>
+    </div>
+    <div style="margin-top: 60px">
+      <%= line_chart @data.daily_unique_visits.count.map { |ip, count|
+        { name: ip, data: UrlStatistic.hourly_unique_visits(ip, @data.id).count }
+      }, xtitle: "Daily (Hourly) Unique Visits", ytitle: "Total Visits: #{@data.daily_sum }" %>
+    </div>
+  </div>
+</div>
+
+<%= render "ip_list_modal" %>

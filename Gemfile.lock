@@ -43,6 +43,7 @@ GEM
       sass (~> 3.2)
     builder (3.2.3)
     byebug (9.0.6)
+    chartkick (2.2.4)
     clipboard-rails (1.7.1)
     coderay (1.1.0)
     coffee-rails (4.1.1)
@@ -168,6 +169,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.2.0)
   byebug
+  chartkick
   clipboard-rails
   coffee-rails (~> 4.1.0)
   font-awesome-rails (= 3.2.1.3)
