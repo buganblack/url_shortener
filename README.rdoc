@@ -7,3 +7,9 @@
   * run the server "rails s"
 
   * to test and run rspec you just type in console "bundle exec rspec"
+  
+  
+  here is an example on how to access the API for this project (url is equal to "shorten_url"):
+   - http://localhost:3000/api/getUrlData.json?key=123test123&url=NovFef
+   - http://localhost:3000/api/getStatisticsData.json?key=123test123&url=kQoeOJ&start_period=2017-08-23%2007:25:40
+   
