@@ -2,6 +2,7 @@ class UrlStatistic < ActiveRecord::Base
   class << self
     def create_record(ip, shorten_url)
       url_data = ShortenUrl.find_by_shorten_url(shorten_url)
+      return unless url_data
       create(ip_address: ip, shorten_url_id: url_data.id)
 
       return url_data.original_url

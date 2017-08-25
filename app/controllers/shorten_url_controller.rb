@@ -10,13 +10,21 @@ class ShortenUrlController < ApplicationController
   def redirect
     url = UrlStatistic.create_record(request.remote_ip, params[:shorten_url])
 
-    ShortenUrl.increament_total(url) if url.present?
+    render_404 and return unless url
+
+    ShortenUrl.increament_total(url)
 
     redirect_to(url)
   end
 
   def show_statistics
     @data = ShortenUrl.find_by_shorten_url(params[:url])
-    render file: "#{Rails.root}/public/404.html", layout: false, status: 404 and return unless @data
+    render_404 and return unless @data
+  end
+
+  private
+
+  def render_404
+    render file: "#{Rails.root}/public/404.html", layout: false, status: 404
   end
 end
