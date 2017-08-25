@@ -2,6 +2,7 @@
   * install all the bundles "bundle install"
   * this project is using mysql database
     - run "rake db:create"
+    - run "rake db:migrate"
     - run "rake db:seed" (to get some temporary data)
     - run "rake db:migrate RAILS_ENV=test" (for rspec)
   * run the server "rails s"
